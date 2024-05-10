@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jculcayT6.Views.Vestudiante"
+             Title="Vestudiante">
+    <VerticalStackLayout Padding="20,20,20,20">
+        <Label 
+            Text="CONSUMO DE REST"
+            FontSize="24"
+            HorizontalOptions="Center" />
+        <Label Text=""/>
+        <Label Text=""/>
+
+        <ListView x:Name="listEstudiantes" ItemSelected="listEstudiantes_ItemSelected" >
+            <ListView.Header>
+                <VerticalStackLayout BackgroundColor="LightGray"  >
+                    <Grid >                        
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition  />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0">
+                            <Label Margin="10" Text="CODIGO" VerticalOptions="Start" FontAttributes="Bold"/></Border>
+                        <Border Grid.Column="1">
+                            <Label Margin="10" Text="NOMBRE" VerticalOptions="Center" FontAttributes="Bold"/>
+                        </Border>
+                        <Border Grid.Column="2">
+                            <Label Margin="10" Text="APELLIDO" VerticalOptions="Center" FontAttributes="Bold"/>
+                        </Border>
+                        <Border Grid.Column="3">
+                            <Label Margin="10" Text="EDAD" VerticalOptions="Center" FontAttributes="Bold"/>
+                        </Border>
+
+                    </Grid>                    
+                </VerticalStackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Grid >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0" VerticalOptions="Center"><Label x:Name="lblCodigo" Text="{Binding codigo}"  VerticalOptions="End"/></Border>
+
+                                <Border  Grid.Column="1" ><Label x:Name="lblNombre" Text="{Binding nombre}" VerticalOptions="Center"/></Border>
+                                <Border Grid.Column="2">
+                                    <Label x:Name="lblApellido" Text="{Binding apellido}"  VerticalOptions="Center"/>
+                                </Border>
+                                <Border Grid.Column="3">
+                                    <Label x:Name="lblEdad" Text="{Binding edad}"  VerticalOptions="Center"/>
+                                </Border>
+
+                            </Grid>
+                            
+                        </StackLayout>
+                    </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+        <Button x:Name="btnAgregar"
+                Text="Agregar Estudiante"
+                Clicked="btnAgregar_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>
